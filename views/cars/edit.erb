@@ -1,0 +1,20 @@
+<form action="/cars/<%= @car.id %>" method="POST">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Make</label>
+    <input type="text" class="form-control" placeholder="Make" name="make" value="<%= @car.make %>">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Model</label>
+    <input type="text" class="form-control" placeholder="Model" name="modelname" value="<%= @car.modelname %>">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Year</label>
+    <input type="text" class="form-control" placeholder="Year" name="year" value="<%= @car.year %>">
+  </div>
+
+  <button type="submit" class="btn btn-default">Submit</button>
+
+  <% if (@car.id != "") %>
+    <input type="hidden" name="_method" value="PUT">
+  <% end %>
+</form>
