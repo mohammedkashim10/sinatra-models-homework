@@ -38,7 +38,7 @@ class App < Sinatra::Base
     car = Car.new
 
     car.make = params[:make]
-    car.modelName = params[:modelName]
+    car.modelname = params[:modelname]
     car.year = params[:year]
 
     car.save
@@ -53,7 +53,7 @@ class App < Sinatra::Base
     car = Car.find id
     # changing the car info to user inputs
     car.make = params[:make]
-    car.modelName = params[:modelName]
+    car.modelname = params[:modelname]
     car.year = params[:year]
 
     car.save

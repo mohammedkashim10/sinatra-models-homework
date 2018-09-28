@@ -1,5 +1,5 @@
 class Car
-  attr_accessor :id, :make, :modelName, :year
+  attr_accessor :id, :make, :modelname, :year
 
   def self.open_connection
     conn = PG.connect(dbname: "cars")
@@ -9,9 +9,9 @@ class Car
     conn = Car.open_connection
 
     if !self.id
-      sql = "INSERT INTO cars (make, modelName, year) VALUES ('#{self.make}', '#{self.modelName}', '#{self.year}')"
+      sql = "INSERT INTO cars (make, modelname, year) VALUES ('#{self.make}', '#{self.modelname}', #{self.year})"
     else
-      sql = "UPDATE cars SET make = '#{self.make}', modelName = '#{self.modelName}', year = '#{self.year}' WHERE id='#{self.id}'"
+      sql = "UPDATE cars SET make = '#{self.make}', modelname = '#{self.modelname}', year = #{self.year} WHERE id=#{self.id}"
     end
 
     conn.exec(sql)
@@ -50,7 +50,7 @@ class Car
 
     car.id = car_data['id']
     car.make = car_data['make']
-    car.modelName = car_data['modelName']
+    car.modelname = car_data['modelname']
     car.year = car_data['year']
 
     car
